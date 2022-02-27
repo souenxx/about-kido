@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import {
   Card,
   Avatar,
@@ -9,20 +9,12 @@ import {
   CardActions,
   Box,
 } from "@mui/material";
+import { StyledDiv, StyledImg, StyledWrapperDiv } from "./style";
 import styled from "styled-components";
-const StyledDiv = styled.div``;
 
-const StyledWrapperDiv = styled.div`
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledImg = styled.img`
-  width: 250px;
-  margin-right: 40px;
+const StyledCard = styled(Card)`
+  display: "flex";
+  opacity: 1;
 `;
 
 export const HelloPresenter: FC = () => {
@@ -56,7 +48,7 @@ export const HelloPresenter: FC = () => {
               <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
                 <CardActions disableSpacing>
                   <a href="https://github.com/souenxx">
-                    <IconButton aria-label="add to favorites">
+                    <IconButton aria-label="github-icon">
                       <Avatar
                         src="GitHub-Mark-64px.png"
                         sx={{ height: "35px", width: "35px" }}
@@ -64,7 +56,7 @@ export const HelloPresenter: FC = () => {
                     </IconButton>
                   </a>
                   <a href="https://twitter.com/s_kido14">
-                    <IconButton aria-label="add to favorites">
+                    <IconButton aria-label="twitter-icon">
                       <Avatar
                         src="Twitter social icons - circle - blue.png"
                         sx={{ height: "35px", width: "35px" }}
@@ -72,7 +64,7 @@ export const HelloPresenter: FC = () => {
                     </IconButton>
                   </a>
                   <a href="https://qiita.com/s_kido14">
-                    <IconButton aria-label="add to favorites">
+                    <IconButton aria-label="qiita-icon">
                       <Avatar
                         src="favicon.png"
                         sx={{ height: "35px", width: "35px" }}
@@ -86,7 +78,7 @@ export const HelloPresenter: FC = () => {
               component="img"
               sx={{ width: 190, height: 220 }}
               image="IMG_6553.jpg"
-              alt="Live from space album cover"
+              alt="my-profile-image"
             />
           </Card>
         </StyledDiv>

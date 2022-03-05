@@ -1,11 +1,6 @@
 import { AppBar } from "@mui/material";
 import { FC } from "react";
-import styled from "styled-components";
-
-const StyledDiv = styled.div`
-  text-align: center;
-  margin: 10px 0;
-`;
+import { StyledDiv } from "./style";
 
 export const FooterPresenter: FC = () => {
   return (

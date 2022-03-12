@@ -3,10 +3,11 @@ import { Footer } from "./footer";
 import { Profile } from "./profile";
 import { Articles } from "./articles";
 import { Header } from "./header";
+import { StyledDiv } from "./style";
 
 export const TopPresenter: FC = () => {
   return (
-    <>
+    <StyledDiv>
       <header>
         <Header />
       </header>
@@ -17,6 +18,6 @@ export const TopPresenter: FC = () => {
       <footer>
         <Footer />
       </footer>
-    </>
+    </StyledDiv>
   );
 };

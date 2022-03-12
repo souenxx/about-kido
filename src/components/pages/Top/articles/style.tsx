@@ -1,11 +1,14 @@
 import styled from "styled-components";
-
+import { sp } from "../../../../media";
 export const StyledUl = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
   padding-left: 0;
+  ${sp`
+    flex-direction: column;
+  `}
 `;
 
 export const StyledImage = styled.img`

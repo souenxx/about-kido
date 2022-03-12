@@ -1,6 +1,14 @@
 import { Card, Avatar, CardMedia, CardContent, Box } from "@mui/material";
 import styled from "styled-components";
-export const StyledDiv = styled.div``;
+import { sp } from "../../../../../media";
+
+export const StyledDiv = styled.div`
+  width: 400px;
+  ${sp`
+    width: 90%;
+    min-width: 150px;
+  `}
+`;
 
 export const StyledWrapperDiv = styled.div`
   display: flex;
@@ -8,11 +16,14 @@ export const StyledWrapperDiv = styled.div`
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  ${sp`
+    flex-direction: column;
+  `}
 `;
 
 export const StyledImg = styled.img`
-  width: 250px;
-  margin-right: 40px;
+  width: 230px;
 `;
 
 export const StyledCard = styled(Card)({
@@ -24,8 +35,7 @@ export const StyledWrapBox = styled(Box)({
   display: "flex",
   flexDirection: "column",
   backgroundColor: "#f5f5f5",
-  width: 220,
-  height: 220,
+  width: "50%",
 });
 
 export const StyledIconAvatar = styled(Avatar)({
@@ -35,7 +45,7 @@ export const StyledIconAvatar = styled(Avatar)({
 });
 
 export const StyledCardMedia = styled(CardMedia)({
-  width: 190,
+  width: "50%",
   height: 220,
   alt: "my-profile-image",
 });

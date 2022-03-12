@@ -7,7 +7,7 @@ import {
   StyledDiv,
   StyledP,
   StyledWrapperDiv,
-  StyledWrapperTitleDiv,
+  StyledHelloDiv,
 } from "./style";
 
 export const HeaderPresenter: FC = () => {
@@ -26,23 +26,25 @@ export const HeaderPresenter: FC = () => {
   return (
     <>
       <StyledWrapperDiv>
-        {styledValueList.map((styledValue) => (
-          <StyledBarDiv>
+        {styledValueList.map((styledValue, i) => (
+          <StyledBarDiv key={i}>
             <StyledBarForwardBarDiv
               top={styledValue.top}
               delay={styledValue.forwardDelay}
+              index={i}
             />
             <StyledBarBackBarDiv
               top={styledValue.top}
               delay={styledValue.backDelay}
+              index={i}
             />
           </StyledBarDiv>
         ))}
-        <StyledWrapperTitleDiv>
-          <StyledP>about me</StyledP>
-        </StyledWrapperTitleDiv>
         <StyledDiv>
-          <Hello />
+          <StyledP>about me</StyledP>
+          <StyledHelloDiv>
+            <Hello />
+          </StyledHelloDiv>
         </StyledDiv>
       </StyledWrapperDiv>
     </>

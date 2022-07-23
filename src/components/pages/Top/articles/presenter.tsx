@@ -39,6 +39,11 @@ export const ArticlesPresenter: FC = () => {
                 食べログFEチームに新卒エンジニアが飛び込んでみた学び
               </a>
             </StyledListItem>
+            <StyledListItem>
+              <a href="https://note.com/tabelog_frontend/n/n7360fd7bc007">
+                エンジニア1年目でApolloを使って良かったこと
+              </a>
+            </StyledListItem>
           </StyledList>
         </li>
       </StyledUl>

@@ -3,6 +3,7 @@ import { Footer } from "./footer";
 import { Profile } from "./profile";
 import { Articles } from "./articles";
 import { Header } from "./header";
+import { Github } from "./github";
 import { StyledDiv } from "./style";
 
 export const TopPresenter: FC = () => {
@@ -13,6 +14,7 @@ export const TopPresenter: FC = () => {
       </header>
       <main>
         <Profile />
+        <Github />
         <Articles />
       </main>
       <footer>

@@ -8,6 +8,7 @@ import {
   StyledWeekDiv,
 } from "./style";
 import { ContributesData } from "./types";
+import { Tooltip } from "@mui/material";
 
 type Props = {
   loading: boolean;
@@ -30,8 +31,11 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
           return (
             <StyledWeekDiv rowIndex={i}>
               {week.contributionDays.map((day) => {
+                const tipComment = `${day.contributionCount} contributions on ${day.date}`;
                 return (
-                  <StyledDayDiv contributionColor={day.contributionColor} />
+                  <Tooltip title={tipComment} arrow>
+                    <StyledDayDiv contributionColor={day.contributionColor} />
+                  </Tooltip>
                 );
               })}
             </StyledWeekDiv>

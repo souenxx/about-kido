@@ -26,6 +26,9 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
   return (
     <StyledWrapperDiv>
       <StyledTitle>contributions</StyledTitle>
+      <div>
+        {contributesData.totalContributions} contributions in the last year
+      </div>
       <StyledContributionsDiv>
         {contributesData.weeks.map((week, i) => {
           return (

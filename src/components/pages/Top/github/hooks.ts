@@ -11,10 +11,8 @@ const judgeContributionType = (contributionCount: number) => {
       return ContributionType.TWICE;
     case 3:
       return ContributionType.THREE_TIMES;
-    case 4:
-      return ContributionType.MORE_TIMES;
     default:
-      return ContributionType.NONE;
+      return ContributionType.MORE_TIMES;
   }
 };
 

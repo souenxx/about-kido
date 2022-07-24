@@ -7,11 +7,7 @@ import {
   StyledTitle,
   StyledWeekDiv,
 } from "./style";
-
-type ContributesData = {
-  totalContributions: number;
-  weeks: { contributionDays: { contributionCount: number; date: string }[] }[];
-};
+import { ContributesData } from "./types";
 
 type Props = {
   loading: boolean;
@@ -34,7 +30,9 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
           return (
             <StyledWeekDiv rowIndex={i}>
               {week.contributionDays.map((day) => {
-                return <StyledDayDiv />;
+                return (
+                  <StyledDayDiv contributionColor={day.contributionColor} />
+                );
               })}
             </StyledWeekDiv>
           );

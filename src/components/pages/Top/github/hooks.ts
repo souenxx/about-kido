@@ -1,8 +1,21 @@
 import { useGithubQuery } from "../../../../types.d";
+import { ContributionType, ContributesData } from "./types";
 
-type ContributesData = {
-  totalContributions: number;
-  weeks: { contributionDays: { contributionCount: number; date: string }[] }[];
+const judgeContributionType = (contributionCount: number) => {
+  switch (contributionCount) {
+    case 0:
+      return ContributionType.NONE;
+    case 1:
+      return ContributionType.ONCE;
+    case 2:
+      return ContributionType.TWICE;
+    case 3:
+      return ContributionType.THREE_TIMES;
+    case 4:
+      return ContributionType.MORE_TIMES;
+    default:
+      return ContributionType.NONE;
+  }
 };
 
 export const useGithub = (): {
@@ -26,7 +39,11 @@ export const useGithub = (): {
       (week) => {
         return {
           contributionDays: week.contributionDays.map((day) => {
-            return { contributionCount: day.contributionCount, date: day.date };
+            return {
+              contributionColor: judgeContributionType(day.contributionCount),
+              contributionCount: day.contributionCount,
+              date: day.date,
+            };
           }),
         };
       }

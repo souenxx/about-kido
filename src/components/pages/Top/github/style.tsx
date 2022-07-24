@@ -18,9 +18,9 @@ export const StyledWeekDiv = styled.div<{ rowIndex: number }>`
   margin: 2px;
 `;
 
-export const StyledDayDiv = styled.div`
+export const StyledDayDiv = styled.div<{ contributionColor: string }>`
   margin: 2px;
   width: 11px;
   height: 11px;
-  background: gray;
+  background: ${({ contributionColor }) => contributionColor};
 `;

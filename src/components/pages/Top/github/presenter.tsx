@@ -6,6 +6,8 @@ import {
   StyledDayDiv,
   StyledTitle,
   StyledWeekDiv,
+  StyledScrollDiv,
+  StyledImg,
 } from "./style";
 import { ContributesData } from "./types";
 import { Tooltip } from "@mui/material";
@@ -26,25 +28,28 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
   return (
     <StyledWrapperDiv>
       <StyledTitle>contributions</StyledTitle>
+      <StyledImg src="./g0721.png" />
       <div>
         {contributesData.totalContributions} contributions in the last year
       </div>
-      <StyledContributionsDiv>
-        {contributesData.weeks.map((week, i) => {
-          return (
-            <StyledWeekDiv rowIndex={i}>
-              {week.contributionDays.map((day) => {
-                const tipComment = `${day.contributionCount} contributions on ${day.date}`;
-                return (
-                  <Tooltip title={tipComment} arrow>
-                    <StyledDayDiv contributionColor={day.contributionColor} />
-                  </Tooltip>
-                );
-              })}
-            </StyledWeekDiv>
-          );
-        })}
-      </StyledContributionsDiv>
+      <StyledScrollDiv>
+        <StyledContributionsDiv>
+          {contributesData.weeks.map((week, i) => {
+            return (
+              <StyledWeekDiv rowIndex={i}>
+                {week.contributionDays.map((day) => {
+                  const tipComment = `${day.contributionCount} contributions on ${day.date}`;
+                  return (
+                    <Tooltip title={tipComment} arrow>
+                      <StyledDayDiv contributionColor={day.contributionColor} />
+                    </Tooltip>
+                  );
+                })}
+              </StyledWeekDiv>
+            );
+          })}
+        </StyledContributionsDiv>
+      </StyledScrollDiv>
     </StyledWrapperDiv>
   );
 };

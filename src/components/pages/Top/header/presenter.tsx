@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Hello } from "./Hello";
+import { MenuBar } from "./MenuBar";
 import {
   StyledBarBackBarDiv,
   StyledBarDiv,
@@ -41,6 +42,7 @@ export const HeaderPresenter: FC = () => {
           </StyledBarDiv>
         ))}
         <StyledDiv>
+          <MenuBar />
           <StyledP>about me</StyledP>
           <StyledHelloDiv>
             <Hello />

@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { CircularProgress } from "@mui/material";
 import {
   StyledContributionsDiv,
   StyledWrapperDiv,
@@ -17,7 +16,7 @@ import {
   StyledContributionNumberDiv,
 } from "./style";
 import { ContributesData } from "./types";
-import { Tooltip } from "@mui/material";
+import { Tooltip, CircularProgress } from "@mui/material";
 
 type Props = {
   loading: boolean;
@@ -25,13 +24,6 @@ type Props = {
 };
 
 export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
-  console.log(contributesData);
-  if (loading) {
-    <div>
-      <CircularProgress />
-    </div>;
-  }
-
   return (
     <StyledWrapperDiv id="contribute-div">
       <StyledTitle>contributions</StyledTitle>
@@ -39,38 +31,51 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
         <StyledImgDiv>
           <StyledImg src="./g0721.png" />
         </StyledImgDiv>
+
         <StyledContributionNumberDiv>
-          <StyledTotalContributionsDiv>
-            <StyledTotalContributionsP>
-              {contributesData.totalContributions} contributions in the last
-              year
-            </StyledTotalContributionsP>
-          </StyledTotalContributionsDiv>
-          <StyledConsecutiveDaysDiv>
-            <StyledConsecutiveDaysP>
-              10 consecutive days of contribution
-            </StyledConsecutiveDaysP>
-          </StyledConsecutiveDaysDiv>
+          {loading ? (
+            <CircularProgress color="success" />
+          ) : (
+            <>
+              <StyledTotalContributionsDiv>
+                <StyledTotalContributionsP>
+                  {contributesData.totalContributions} contributions in the last
+                  year
+                </StyledTotalContributionsP>
+              </StyledTotalContributionsDiv>
+              <StyledConsecutiveDaysDiv>
+                <StyledConsecutiveDaysP>
+                  10 consecutive days of contribution
+                </StyledConsecutiveDaysP>
+              </StyledConsecutiveDaysDiv>
+            </>
+          )}
         </StyledContributionNumberDiv>
       </StyledContainerDiv>
-      <StyledScrollDiv>
-        <StyledContributionsDiv>
-          {contributesData.weeks.map((week, i) => {
-            return (
-              <StyledWeekDiv rowIndex={i}>
-                {week.contributionDays.map((day) => {
-                  const tipComment = `${day.contributionCount} contributions on ${day.date}`;
-                  return (
-                    <Tooltip title={tipComment} arrow>
-                      <StyledDayDiv contributionColor={day.contributionColor} />
-                    </Tooltip>
-                  );
-                })}
-              </StyledWeekDiv>
-            );
-          })}
-        </StyledContributionsDiv>
-      </StyledScrollDiv>
+      {loading ? (
+        <CircularProgress color="success" />
+      ) : (
+        <StyledScrollDiv>
+          <StyledContributionsDiv>
+            {contributesData.weeks.map((week, i) => {
+              return (
+                <StyledWeekDiv rowIndex={i}>
+                  {week.contributionDays.map((day) => {
+                    const tipComment = `${day.contributionCount} contributions on ${day.date}`;
+                    return (
+                      <Tooltip title={tipComment} arrow>
+                        <StyledDayDiv
+                          contributionColor={day.contributionColor}
+                        />
+                      </Tooltip>
+                    );
+                  })}
+                </StyledWeekDiv>
+              );
+            })}
+          </StyledContributionsDiv>
+        </StyledScrollDiv>
+      )}
     </StyledWrapperDiv>
   );
 };

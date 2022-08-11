@@ -1,5 +1,5 @@
 export const ContributionType = {
-  NONE: "#f5f5f5",
+  NONE: "#dcdcdc",
   ONCE: "#90ee90",
   TWICE: "#3cb371",
   THREE_TIMES: "#008000",

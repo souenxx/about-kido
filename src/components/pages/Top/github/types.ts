@@ -15,4 +15,5 @@ export type ContributesData = {
       date: string;
     }[];
   }[];
+  consecutiveContribution: number;
 };

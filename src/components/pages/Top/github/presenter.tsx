@@ -24,6 +24,8 @@ type Props = {
 };
 
 export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
+  const { totalContributions, weeks, consecutiveContribution } =
+    contributesData;
   return (
     <StyledWrapperDiv id="contribute-div">
       <StyledTitle>contributions</StyledTitle>
@@ -39,13 +41,12 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
             <>
               <StyledTotalContributionsDiv>
                 <StyledTotalContributionsP>
-                  {contributesData.totalContributions} contributions in the last
-                  year
+                  {totalContributions} contributions in the last year
                 </StyledTotalContributionsP>
               </StyledTotalContributionsDiv>
               <StyledConsecutiveDaysDiv>
                 <StyledConsecutiveDaysP>
-                  10 consecutive days of contribution
+                  {consecutiveContribution} consecutive days of contribution
                 </StyledConsecutiveDaysP>
               </StyledConsecutiveDaysDiv>
             </>
@@ -57,7 +58,7 @@ export const GithubPresenter: FC<Props> = ({ loading, contributesData }) => {
       ) : (
         <StyledScrollDiv>
           <StyledContributionsDiv>
-            {contributesData.weeks.map((week, i) => {
+            {weeks.map((week, i) => {
               return (
                 <StyledWeekDiv rowIndex={i}>
                   {week.contributionDays.map((day) => {

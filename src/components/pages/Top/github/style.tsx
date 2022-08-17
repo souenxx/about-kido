@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { sp, pc } from "../../../../media";
 export const StyledScrollDiv = styled.div`
   overflow-x: scroll;
 `;
@@ -65,6 +65,9 @@ export const StyledTotalContributionsP = styled.p`
 export const StyledConsecutiveDaysDiv = styled.div`
   width: 400px;
   margin: 20px 0;
+  ${sp`
+    width: 90%;
+  `}
 `;
 
 export const StyledConsecutiveDaysP = styled.p`
@@ -88,7 +91,12 @@ export const StyledConsecutiveDaysP = styled.p`
 
 export const StyledContainerDiv = styled.div`
   display: flex;
-  justify-content: center;
+  ${pc`
+    justify-content: center;
+  `}
+  ${sp`
+    flex-flow: column;
+  `}
 `;
 
 export const StyledImgDiv = styled.div`
@@ -98,4 +106,7 @@ export const StyledImgDiv = styled.div`
 export const StyledContributionNumberDiv = styled.div`
   width: 450px;
   margin: auto 0;
+  ${sp`
+    width: 90%;
+  `}
 `;
